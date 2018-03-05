@@ -21,8 +21,7 @@ const favorites = handleActions(
       return { ...newState };
     },
     TOGGLE_FAVORITE(state, { payload }) {
-      const { productId } = payload;
-      let newState = { ...state, [productId]: !state[productId] };
+      let newState = { ...state, [payload]: !state[payload] };
       storage.setItem(FAVORITES_KEY, JSON.stringify(newState));
       return { ...newState };
     },
