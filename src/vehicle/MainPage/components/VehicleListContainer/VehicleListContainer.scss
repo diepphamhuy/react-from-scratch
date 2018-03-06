@@ -1,0 +1,19 @@
+@import '../../../../styles/variables';
+.listContainer {
+  margin-top: 20px;
+  :global {
+    .ant-tabs-bar {
+      margin-bottom: 0px;
+      .ant-tabs-tab {
+        border-radius: inherit !important;
+        margin-right: -1px !important;
+      }
+    }
+
+    .ant-tabs-tabpane {
+      padding: $default-padding;
+      background: $white;
+      min-height: 300px;
+    }
+  }
+}

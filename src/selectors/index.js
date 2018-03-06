@@ -11,25 +11,32 @@ const getVehicleLatestData = state => getVehicleMainpage(state).latest.Data;
 
 export const getVehicleMostViewWithFavorite = state => {
   let mostViewData = getVehicleMostViewData(state);
-  mostViewData.forEach(
-    product =>
-      (product.IsFavorite = getProductFavorite(
-        state.vehicle.localStorage,
-        product.ID,
-      )),
-  );
-  // Use slice here to clone new array, help trigger rerender in components
-  return mostViewData.slice();
+  if (mostViewData) {
+    mostViewData.forEach(
+      product =>
+        (product.IsFavorite = getProductFavorite(
+          state.vehicle.localStorage,
+          product.ID,
+        )),
+    );
+    // Use slice here to clone new array, help trigger rerender in components
+    return mostViewData.slice();
+  }
+
+  return undefined;
 };
 export const getVehicleLatestWithFavorite = state => {
   let latestData = getVehicleLatestData(state);
-  latestData.forEach(
-    product =>
-      (product.IsFavorite = getProductFavorite(
-        state.vehicle.localStorage,
-        product.ID,
-      )),
-  );
-  // Use slice here to clone new array, help trigger rerender in components
-  return latestData.slice();
+  if (latestData) {
+    latestData.forEach(
+      product =>
+        (product.IsFavorite = getProductFavorite(
+          state.vehicle.localStorage,
+          product.ID,
+        )),
+    );
+    // Use slice here to clone new array, help trigger rerender in components
+    return latestData.slice();
+  }
+  return undefined;
 };

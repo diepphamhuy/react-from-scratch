@@ -105,11 +105,6 @@ module.exports = {
       // First, run the linter.
       // It's important to do this before Babel processes the JS.
       {
-        test: /\.(scss|sass)$/,
-        include: paths.appSrc,
-        use: ['style-loader', 'css-loader', 'sass-loader?sourceMap=true'],
-      },
-      {
         test: /\.(js|jsx|mjs)$/,
         enforce: 'pre',
         use: [
@@ -159,13 +154,8 @@ module.exports = {
           {
             test: /\.css$/,
             use: [
-              require.resolve('style-loader'),
-              {
-                loader: require.resolve('css-loader'),
-                options: {
-                  importLoaders: 1,
-                },
-              },
+              'style-loader',
+              'css-loader',
               {
                 loader: require.resolve('postcss-loader'),
                 options: {
@@ -186,6 +176,26 @@ module.exports = {
                   ],
                 },
               },
+            ],
+          },
+          {
+            test: /\.global\.(scss|sass)$/,
+            use: ['style-loader', 'css-loader', 'sass-loader'],
+          },
+          {
+            test: /\.(scss|sass)$/,
+            use: [
+              'style-loader',
+              {
+                loader: 'css-loader',
+                options: {
+                  modules: true,
+                  sourceMap: true,
+                  importLoaders: 2,
+                  localIdentName: '[name]__[local]___[hash:base64:5]',
+                },
+              },
+              'sass-loader',
             ],
           },
           // "file" loader makes sure those assets get served by WebpackDevServer.

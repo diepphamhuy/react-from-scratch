@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Header, Footer } from './shared/components';
+import { Header, Footer } from 'components';
 import { Route, Switch } from 'react-router-dom';
 import { MainPage } from './vehicle';
 import LocalStorage from './vehicle/localStorage/LocalStorage';

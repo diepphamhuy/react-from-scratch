@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Tabs, Divider } from 'antd';
-import { Loader } from 'shared/components';
-import VehicleItemDetail from './VehicleItemDetail';
-
+import { Loader, VehicleItemDetail } from 'components';
+import styles from './VehicleListContainer.scss';
 const propsTypes = {
   mostView: PropTypes.array,
   latest: PropTypes.array,
@@ -26,13 +25,21 @@ class VehicleListContainer extends Component {
   render() {
     const { mostView, latest } = this.props;
     return (
-      <div className="car-list-container">
+      <div className={styles.listContainer}>
         <Tabs type="card">
           <Tabs.TabPane tab="Most viewed" key="1">
-            {mostView ? this.renderVehicleList(mostView) : <Loader />}
+            {mostView && mostView.length > 0 ? (
+              this.renderVehicleList(mostView)
+            ) : (
+              <Loader />
+            )}
           </Tabs.TabPane>
           <Tabs.TabPane tab="Latest" key="2">
-            {latest ? this.renderVehicleList(latest) : <Loader />}
+            {latest && latest.length > 0 ? (
+              this.renderVehicleList(latest)
+            ) : (
+              <Loader />
+            )}
           </Tabs.TabPane>
         </Tabs>
       </div>

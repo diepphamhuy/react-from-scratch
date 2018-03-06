@@ -1,0 +1,44 @@
+@import '../../../../styles/variables';
+.categoriesNavbar {
+  overflow: hidden;
+  ul {
+    width: 100%;
+  }
+  li {
+    font-size: 18px;
+    font-weight: 600;
+    width: 20%;
+    text-align: center;
+  }
+}
+
+.ant-menu-item {
+  margin-bottom: 4px;
+  &:hover {
+    background: $primary-light-color;
+  }
+}
+
+.subMenu {
+  :global {
+    .ant-menu-item {
+      margin-bottom: 4px;
+    }
+
+    @media (min-width: 768px) {
+      .ant-menu-sub {
+        width: 720px;
+      }
+    }
+    @media (min-width: 992px) {
+      .ant-menu-sub {
+        width: 940px;
+      }
+    }
+    @media (min-width: 1200px) {
+      .ant-menu-sub {
+        width: 1140px;
+      }
+    }
+  }
+}

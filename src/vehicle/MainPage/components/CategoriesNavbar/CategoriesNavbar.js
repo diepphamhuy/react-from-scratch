@@ -5,7 +5,8 @@ import {
   MotorbikesMenuData,
   MotorhomesMenuData,
   TrucksMenuData,
-} from 'shared/constants/api-data';
+} from 'constants/api-data';
+import styles from './CategoriesNavbar.scss';
 
 const CarMenuItems = () => {
   return CarMenuData.map((item, index) => {
@@ -55,50 +56,35 @@ const OthersMenuItems = () => {
 
 const CategoriesNavbar = () => {
   return (
-    <div className="categories-navbar">
+    <div className={styles.categoriesNavbar}>
       <Menu
         mode="horizontal"
         selectable={false}
         style={{ lineHeight: '64px' }}
         className="pull-right"
       >
-        <Menu.SubMenu title="Car">
-          <Menu.ItemGroup
-            className="ant-row"
-            title={<a href="#">View all cars</a>}
-          >
+        <Menu.SubMenu title="Car" className={styles.subMenu}>
+          <Menu.ItemGroup title={<a href="#">View all cars</a>}>
             {CarMenuItems()}
           </Menu.ItemGroup>
         </Menu.SubMenu>
-        <Menu.SubMenu title="Motorbikes">
-          <Menu.ItemGroup
-            className="ant-row"
-            title={<a href="#">View all motorbikes</a>}
-          >
+        <Menu.SubMenu title="Motorbikes" className={styles.subMenu}>
+          <Menu.ItemGroup title={<a href="#">View all motorbikes</a>}>
             {MotorbikesMenuItems()}
           </Menu.ItemGroup>
         </Menu.SubMenu>
-        <Menu.SubMenu title="Motorhomes">
-          <Menu.ItemGroup
-            className="ant-row"
-            title={<a href="#">View all motorhomes & vans</a>}
-          >
+        <Menu.SubMenu title="Motorhomes" className={styles.subMenu}>
+          <Menu.ItemGroup title={<a href="#">View all motorhomes & vans</a>}>
             {MotorhomesMenuItems()}
           </Menu.ItemGroup>
         </Menu.SubMenu>
-        <Menu.SubMenu title="Trucks">
-          <Menu.ItemGroup
-            className="ant-row"
-            title={<a href="#">View all Trucks</a>}
-          >
+        <Menu.SubMenu title="Trucks" className={styles.subMenu}>
+          <Menu.ItemGroup title={<a href="#">View all Trucks</a>}>
             {TrucksMenuItems()}
           </Menu.ItemGroup>
         </Menu.SubMenu>
-        <Menu.SubMenu title="Others">
-          <Menu.ItemGroup
-            className="ant-row"
-            title={<a href="#">View all Others</a>}
-          >
+        <Menu.SubMenu title="Others" className={styles.subMenu}>
+          <Menu.ItemGroup title={<a href="#">View all Others</a>}>
             {OthersMenuItems()}
           </Menu.ItemGroup>
         </Menu.SubMenu>

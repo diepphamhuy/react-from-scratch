@@ -1,0 +1,22 @@
+.detail {
+  min-height: 200px;
+  margin-bottom: 20px;
+  img {
+    max-width: 100%;
+  }
+  .actionBox {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+
+    button {
+      margin-left: 5px;
+    }
+  }
+
+  .price {
+    padding-right: 30px !important;
+    text-align: right;
+    font-weight: 900;
+  }
+}

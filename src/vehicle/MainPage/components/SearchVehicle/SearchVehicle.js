@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Form, Select, Row, Col, Button } from 'antd';
-import { MakeData } from '../../../shared/constants/api-data';
+import { MakeData } from 'constants/api-data';
 import { Field, reduxForm } from 'redux-form';
-import { SelectFieldWrapper, TextFieldWrapper } from 'shared/components';
-
+import { SelectFieldWrapper, TextFieldWrapper } from 'components';
+import styles from './SearchVehicle.scss';
 class SearchVehicle extends Component {
   renderMakeDropdown = () => {
     return (
@@ -22,14 +22,14 @@ class SearchVehicle extends Component {
   render() {
     const { handleSubmit } = this.props;
     return (
-      <Row className="search-car-panel">
+      <Row className={styles.panel}>
         <Col span={12}>
           <div className="h4" style={{ marginTop: '0px' }}>
             Search for your car
           </div>
           <Form
             layout="vertical"
-            className="search-car-box"
+            className={styles.box}
             onSubmit={handleSubmit}
           >
             <Row gutter={16}>
@@ -73,20 +73,20 @@ class SearchVehicle extends Component {
               <Col span={24}>
                 <Form.Item label="Mileage">
                   <Row gutter={16}>
-                    <Col span={12} className="inline-form-item">
+                    <Col span={12} className={styles.inlineFormItem}>
                       <Field
                         name="powerFrom"
                         component={TextFieldWrapper}
-                        label={<span className="custom-item-label">From</span>}
+                        label={<span className={styles.itemLabel}>From</span>}
                         placeholder="0"
                         addonAfter="km"
                       />
                     </Col>
-                    <Col span={12} className="inline-form-item">
+                    <Col span={12} className={styles.inlineFormItem}>
                       <Field
                         name="powerTo"
                         component={TextFieldWrapper}
-                        label={<span className="custom-item-label">To</span>}
+                        label={<span className={styles.itemLabel}>To</span>}
                         placeholder="0"
                         addonAfter="km"
                       />
@@ -97,20 +97,20 @@ class SearchVehicle extends Component {
               <Col span={24}>
                 <Form.Item label="Price">
                   <Row gutter={16}>
-                    <Col span={12} className="inline-form-item">
+                    <Col span={12} className={styles.inlineFormItem}>
                       <Field
                         name="priceFrom"
                         component={TextFieldWrapper}
-                        label={<span className="custom-item-label">From</span>}
+                        label={<span className={styles.itemLabel}>From</span>}
                         placeholder="0"
                         addonAfter="$"
                       />
                     </Col>
-                    <Col span={12} className="inline-form-item">
+                    <Col span={12} className={styles.inlineFormItem}>
                       <Field
                         name="priceTo"
                         component={TextFieldWrapper}
-                        label={<span className="custom-item-label">To</span>}
+                        label={<span className={styles.itemLabel}>To</span>}
                         placeholder="0"
                         addonAfter="$"
                       />
@@ -133,7 +133,7 @@ class SearchVehicle extends Component {
             </Row>
           </Form>
         </Col>
-        <Col span={12} className="advertise">
+        <Col span={12} className={styles.advertise}>
           <img
             src="https://s3-us-west-2.amazonaws.com/courses-images/wp-content/uploads/sites/1939/2017/05/30154953/5726568942-933b34f713-b.jpeg"
             alt="advertise"
