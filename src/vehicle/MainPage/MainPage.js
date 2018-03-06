@@ -13,7 +13,7 @@ import {
   getVehicleMostViewWithFavorite,
   getVehicleLatestWithFavorite,
 } from 'selectors';
-import './MainPage.scss';
+import styles from './MainPage.scss';
 
 const propTypes = {
   mostView: PropTypes.array,

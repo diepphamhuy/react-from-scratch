@@ -1,0 +1,27 @@
+.wrapper {
+  overflow-y: overlay;
+
+  .subImagesList {
+    position: relative;
+    height: 100px;
+    width: 1500px;
+
+    .imageItem {
+      padding: 0px !important;
+      float: left;
+      padding-right: 10px;
+      border-bottom: 0px;
+      margin: 0px !important;
+      opacity: 0.5;
+      transition: 0.1s;
+      cursor: pointer;
+      &:hover {
+        opacity: 1;
+      }
+      .subImage {
+        height: 80px;
+        padding-right: 10px;
+      }
+    }
+  }
+}

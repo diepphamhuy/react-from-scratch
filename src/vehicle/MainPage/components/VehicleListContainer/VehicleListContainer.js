@@ -1,14 +1,38 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Tabs, Divider } from 'antd';
-import { Loader, VehicleItemDetail } from 'components';
+import { Loader, VehicleItemDetail, VehicleItemModal } from 'components';
 import styles from './VehicleListContainer.scss';
 const propsTypes = {
   mostView: PropTypes.array,
   latest: PropTypes.array,
   onFavoriteClick: PropTypes.func.isRequired,
+  onImageClick: PropTypes.func.isRequired,
 };
 class VehicleListContainer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { modalVisible: false, modalVehicle: {} };
+  }
+  showModal = () => {
+    this.setState({
+      modalVisible: true,
+    });
+  };
+  closeModal = () => {
+    this.setState({
+      modalVisible: false,
+    });
+  };
+
+  handleItemImageClick = item => {
+    this.setState(
+      {
+        modalVehicle: item,
+      },
+      this.showModal(),
+    );
+  };
   renderVehicleList(data) {
     return data.map((item, index) => {
       return (
@@ -16,6 +40,7 @@ class VehicleListContainer extends Component {
           <VehicleItemDetail
             item={item}
             onFavoriteClick={this.props.onFavoriteClick}
+            onImageClick={() => this.handleItemImageClick(item)}
           />
           <Divider />
         </div>
@@ -42,6 +67,11 @@ class VehicleListContainer extends Component {
             )}
           </Tabs.TabPane>
         </Tabs>
+        <VehicleItemModal
+          vehicle={this.state.modalVehicle}
+          visible={this.state.modalVisible}
+          onCancel={this.closeModal}
+        />
       </div>
     );
   }
