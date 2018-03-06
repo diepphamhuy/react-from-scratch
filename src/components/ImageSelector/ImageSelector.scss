@@ -1,26 +1,35 @@
+@import '../../styles/variables';
 .wrapper {
   overflow-y: overlay;
 
   .subImagesList {
     position: relative;
     height: 100px;
-    width: 1500px;
+    min-width: 1000px;
 
     .imageItem {
       padding: 0px !important;
       float: left;
-      padding-right: 10px;
+      margin-right: 10px;
       border-bottom: 0px;
       margin: 0px !important;
-      opacity: 0.5;
+
       transition: 0.1s;
+
       cursor: pointer;
-      &:hover {
-        opacity: 1;
-      }
+
       .subImage {
+        border-bottom: 2px solid rgba($color: #fff, $alpha: 0);
         height: 80px;
-        padding-right: 10px;
+        margin-right: 10px;
+        opacity: 0.6;
+        &:hover {
+          opacity: 1;
+        }
+      }
+      .active {
+        opacity: 0.95;
+        border-bottom: 2px solid $primary-color;
       }
     }
   }

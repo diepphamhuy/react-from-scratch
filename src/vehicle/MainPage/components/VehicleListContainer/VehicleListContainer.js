@@ -12,7 +12,7 @@ const propsTypes = {
 class VehicleListContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = { modalVisible: false, modalVehicle: {} };
+    this.state = { modalVisible: false, modalVehicle: undefined };
   }
   showModal = () => {
     this.setState({
@@ -34,21 +34,19 @@ class VehicleListContainer extends Component {
     );
   };
   renderVehicleList(data) {
-    return data.map((item, index) => {
-      return (
-        <div key={index}>
-          <VehicleItemDetail
-            item={item}
-            onFavoriteClick={this.props.onFavoriteClick}
-            onImageClick={() => this.handleItemImageClick(item)}
-          />
-          <Divider />
-        </div>
-      );
-    });
+    return data.map((item, index) => (
+      <div key={index}>
+        <VehicleItemDetail
+          item={item}
+          onFavoriteClick={this.props.onFavoriteClick}
+          onImageClick={() => this.handleItemImageClick(item)}
+        />
+        <Divider />
+      </div>
+    ));
   }
   render() {
-    const { mostView, latest } = this.props;
+    const { mostView, latest, onFavoriteClick } = this.props;
     return (
       <div className={styles.listContainer}>
         <Tabs type="card">
@@ -71,6 +69,7 @@ class VehicleListContainer extends Component {
           vehicle={this.state.modalVehicle}
           visible={this.state.modalVisible}
           onCancel={this.closeModal}
+          onFavoriteClick={onFavoriteClick}
         />
       </div>
     );

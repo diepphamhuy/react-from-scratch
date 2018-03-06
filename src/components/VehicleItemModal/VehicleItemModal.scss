@@ -1,5 +1,5 @@
 .modal {
-  width: 800px !important;
+  width: 900px !important;
 
   h3 {
     margin-top: 0px;
@@ -7,5 +7,33 @@
 
   .mainImage {
     width: 100%;
+    max-height: 700px;
+  }
+
+  .actionBox {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    .button {
+      margin-left: 5px;
+    }
+  }
+
+  .price {
+    font-size: 24px;
+    font-weight: 800;
+    color: #000;
+  }
+
+  .basicInfo {
+    margin-top: 15px;
+    p {
+      font-weight: 600;
+    }
+  }
+  p {
+    font-size: 15px;
+    margin-bottom: 0px;
+    color: rgba(0, 0, 0, 0.9);
   }
 }
